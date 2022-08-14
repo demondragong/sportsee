@@ -7,7 +7,7 @@ export default function Router() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route index element={<Profile />} />
+        <Route path="user/:userId" element={<Profile />} />
       </Route>
     </Routes>
   </BrowserRouter>

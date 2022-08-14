@@ -7,37 +7,11 @@ import {
   PolarRadiusAxis,
 } from "recharts";
 
-export default function PerformanceRadarChart() {
-  const data = [
-    {
-        value: 200,
-        kind: 1
-    },
-    {
-        value: 240,
-        kind: 2
-    },
-    {
-        value: 80,
-        kind: 3
-    },
-    {
-        value: 80,
-        kind: 4
-    },
-    {
-        value: 220,
-        kind: 5
-    },
-    {
-        value: 110,
-        kind: 6
-    }
-]
+export default function PerformanceRadarChart({ performanceData }) {
 
   return (
-    <ResponsiveContainer width={400} height={400}>
-      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+    <ResponsiveContainer width={258} height={263}>
+      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performanceData.data}>
         <PolarGrid radialLines={false} />
         <PolarRadiusAxis axisLine={false} tick={false} tickCount={6}/>
         <PolarAngleAxis dataKey="kind" />
