@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, Tooltip } from "recharts";
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function SessionLengthLineChart({ sessionLengthData }) {
 
@@ -45,9 +45,10 @@ export default function SessionLengthLineChart({ sessionLengthData }) {
   }
 
   return (
+    <ResponsiveContainer className="card card--square card--red" width="30%" height="100%">
     <LineChart
-      width={258}
-      height={263}
+      width="30%"
+      height="100%"
       data={sessionLengthData.sessions}
       margin={{ top: 5, right: 20, left: 50, bottom: 5 }}
     >
@@ -65,5 +66,6 @@ export default function SessionLengthLineChart({ sessionLengthData }) {
         dot={false}
       />
     </LineChart>
+    </ResponsiveContainer>
   );
 }

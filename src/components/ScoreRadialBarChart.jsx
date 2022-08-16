@@ -5,17 +5,9 @@ import {
   PolarAngleAxis,
 } from "recharts";
 
-export default function ScoreRadialBarChart({ score }) {
-
-  const data = [
-    {
-      score: score,
-    },
-  ];
-
-
+export default function ScoreRadialBarChart({ data }) {
   return (
-    <ResponsiveContainer width={258} height={263}>
+    <ResponsiveContainer className="card card--square" width="30%" height="100%">
       <RadialBarChart
         cx="50%"
         cy="50%"
@@ -24,7 +16,13 @@ export default function ScoreRadialBarChart({ score }) {
         barSize={10}
         data={data}
       >
-         <PolarAngleAxis type="number" domain={[0, 1]} dataKey={"score"} angleAxisId={0} tick={false} />
+        <PolarAngleAxis
+          type="number"
+          domain={[0, 1]}
+          dataKey="score"
+          angleAxisId={0}
+          tick={false}
+        />
         <RadialBar
           minAngle={15}
           label={{ position: "center", fill: "#FF0000" }}
