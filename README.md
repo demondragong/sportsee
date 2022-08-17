@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple example steps.
 
 2. Clone the current repo
    ```sh
-   git clone https://github.com/demondragong/sportsee-api.git
+   git clone https://github.com/demondragong/sportsee.git
    ```
 
 3. Install NPM packages
