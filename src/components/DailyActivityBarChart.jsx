@@ -59,8 +59,8 @@ export default function DailyActivityBarChart({ activityData }) {
         />
         <Tooltip content={<CustomTooltip />} />
         <Legend align="right" verticalAlign="top" />
-        <Bar dataKey="kilogram" fill="#282D30" />
-        <Bar dataKey="calories" fill="#E60000" />
+        <Bar dataKey="kilogram" fill="#282D30" barSize={7}/>
+        <Bar dataKey="calories" fill="#E60000" barSize={7} />
       </BarChart>
     </ResponsiveContainer>
   );

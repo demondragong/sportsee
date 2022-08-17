@@ -1,3 +1,10 @@
 export default function VerticalNavBar() {
-    return <div className="vertical-nav-bar"></div>;
-  }
+  return (
+    <nav className="vertical-nav-bar">
+      <button className="vnav-button"></button>
+      <button className="vnav-button"></button>
+      <button className="vnav-button"></button>
+      <button className="vnav-button"></button>
+    </nav>
+  );
+}

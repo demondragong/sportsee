@@ -1,0 +1,149 @@
+// || utils
+
+$kasa-red: #ff6060;
+$kasa-light-grey: #f6f6f6;
+$star-grey: #e3e3e3;
+
+$font-fam: "Roboto", sans-serif;
+
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+body {
+  margin: 0;
+  font-family: $font-fam;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  height: 90px;
+  background: #020203;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 178px;
+  height: 60px;
+  margin-left: 30px;
+}
+.nav {
+  width: 100%;
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.vertical-nav-bar {
+  position: absolute;
+  z-index: -1;
+  width: 90px;
+  min-height: 100vh;
+  left: 0px;
+  top: 0px;
+  background: #020203;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.vnav-button {
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+.profile-main {
+  max-width: 1200px;
+  height: calc(100vh - 90px);
+  margin: 4rem auto;
+  /* to offset vertical nav bar */
+  padding-left: 90px;
+}
+
+.greeting {
+  margin-bottom: 2rem;
+  &__heading {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 24px;
+    &--name {
+      color: red;
+    }
+  }
+  &__sub {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.dashboard {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.charts {
+  width: 75%;
+}
+
+.square-charts {
+  margin-top: 30px;
+  height: 45%;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.card--square {
+  height: 200px;
+}
+
+.cards-gallery {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.indicator-card {
+  padding-left: 32px;
+  height: 20%;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.card {
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+}
+
+.card--black {
+  color: white;
+  background: #282d30;
+}
+
+.card--red {
+  color: white;
+  background: #ff0000;
+}

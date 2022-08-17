@@ -13,7 +13,7 @@ export default function PerformanceRadarChart({ performanceData }) {
       <RadarChart cx="50%" cy="50%" outerRadius="60%" data={performanceData}>
         <PolarGrid radialLines={false} />
         <PolarRadiusAxis axisLine={false} tick={false} tickCount={6}/>
-        <PolarAngleAxis dataKey="kind" />
+        <PolarAngleAxis dataKey="kind" tick={{ fill: 'white', fontSize: 12 }} />
         <Radar
           name="Mike"
           dataKey="value"

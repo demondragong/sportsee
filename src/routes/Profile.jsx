@@ -31,9 +31,9 @@ export default function Profile() {
 
   return (
     <main className="profile-main">
-      <section>
-        <p>Bonjour {userData.userInfos?.firstName}</p>
-        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      <section className="greeting">
+        <p className="greeting__heading">Bonjour <span className="greeting__heading--name">{userData.userInfos?.firstName}</span></p>
+        <p className="greeting__sub">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </section>
       <section className="dashboard">
         <section className="charts">
