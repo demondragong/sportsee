@@ -1,19 +1,10 @@
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<h3 align="center">Sportsee frontend</h3>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Sportsee frontend
 
 
-Here is a single page physical activity tracking dashboard built with React and Recharts.
+A single page physical activity tracking dashboard built with React and Recharts.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -48,16 +39,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm start
    ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
