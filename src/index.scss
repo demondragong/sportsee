@@ -72,8 +72,9 @@ body {
   max-width: 1200px;
   height: calc(100vh - 90px);
   margin: 4rem auto;
-  /* to offset vertical nav bar */
-  padding-left: 90px;
+  /* extra 90 on the left to offset vertical nav bar */
+  padding-left: 110px;
+  padding-right: 20px;
 }
 
 .greeting {
