@@ -4,6 +4,7 @@ import {
   ResponsiveContainer,
   PolarAngleAxis,
 } from "recharts";
+import PropTypes from "prop-types";
 
 export default function ScoreRadialBarChart({ data }) {
   return (
@@ -37,12 +38,7 @@ export default function ScoreRadialBarChart({ data }) {
           cornerRadius={10}
         />
 
-        <text
-          x="30"
-          y="24"
-          fill="black"
-          dominantBaseline="central"
-        >
+        <text x="7%" y="24" fill="black" dominantBaseline="central">
           <tspan>Score</tspan>
         </text>
 
@@ -67,3 +63,8 @@ export default function ScoreRadialBarChart({ data }) {
     </ResponsiveContainer>
   );
 }
+
+ScoreRadialBarChart.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({ score: PropTypes.number }))
+    .isRequired,
+};

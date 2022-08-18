@@ -2,6 +2,8 @@ import caloriesIcon from '../static/indicator-cards-icons/calories-icon.svg'
 import carbsIcon from '../static/indicator-cards-icons/carbs-icon.svg'
 import fatIcon from '../static/indicator-cards-icons/fat-icon.svg'
 import proteinIcon from '../static/indicator-cards-icons/protein-icon.svg'
+import PropTypes from "prop-types";
+
 
 export default function IndicatorCard({data}) {
     
@@ -35,3 +37,8 @@ export default function IndicatorCard({data}) {
         </div>
     )
 }
+
+IndicatorCard.propTypes = {
+    data: PropTypes.object
+  };
+  

@@ -6,6 +6,7 @@ import {
   ResponsiveContainer,
   PolarRadiusAxis,
 } from "recharts";
+import PropTypes from "prop-types";
 
 export default function PerformanceRadarChart({ performanceData }) {
   return (
@@ -36,3 +37,7 @@ export default function PerformanceRadarChart({ performanceData }) {
     </ResponsiveContainer>
   );
 }
+
+PerformanceRadarChart.propTypes = {
+  performanceData: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

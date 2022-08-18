@@ -12,10 +12,11 @@ import formattedScoreData from "../utils/factories/formattedScoreData";
 
 export default function Profile() {
   const { userId } = useParams();
-
   const [userData, setUserData] = useState({});
-  const [userActivityData, setUserActivityData] = useState({});
-  const [userAverageSessionData, setUserAverageSessionData] = useState({});
+  const [userActivityData, setUserActivityData] = useState({ sessions: [] });
+  const [userAverageSessionData, setUserAverageSessionData] = useState({
+    sessions: [],
+  });
   const [userPerformanceData, setUserPerformanceData] = useState({});
 
   useEffect(() => {
@@ -50,7 +51,9 @@ export default function Profile() {
               sessionLengthData={userAverageSessionData}
             />
             <PerformanceRadarChart
-              performanceData={formattedPerformanceData(userPerformanceData)}
+              performanceData={
+                formattedPerformanceData(userPerformanceData) || []
+              }
             />
             <ScoreRadialBarChart data={formattedScoreData(userData)} />
           </div>

@@ -8,6 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 function CustomTooltip({ payload, active }) {
   if (active) {
@@ -65,8 +66,13 @@ export default function DailyActivityBarChart({ activityData }) {
         />
         <Tooltip
           content={<CustomTooltip />}
-          itemStyle = {{margin: "auto"}}
-          wrapperStyle={{ fontSize: 14, padding: 10, color: "#FFFFFF", backgroundColor: "#E60000" }}
+          itemStyle={{ margin: "auto" }}
+          wrapperStyle={{
+            fontSize: 14,
+            padding: 10,
+            color: "#FFFFFF",
+            backgroundColor: "#E60000",
+          }}
         />
         <Legend
           align="right"
@@ -93,3 +99,9 @@ export default function DailyActivityBarChart({ activityData }) {
     </ResponsiveContainer>
   );
 }
+
+DailyActivityBarChart.propTypes = {
+  activityData: PropTypes.shape({
+    sessions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }),
+};

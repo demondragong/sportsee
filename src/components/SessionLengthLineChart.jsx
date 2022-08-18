@@ -1,4 +1,6 @@
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import PropTypes from "prop-types";
+
 
 export default function SessionLengthLineChart({ sessionLengthData }) {
   function CustomTooltip({ payload, active }) {
@@ -62,8 +64,15 @@ export default function SessionLengthLineChart({ sessionLengthData }) {
           tickLine={false}
           tickFormatter={formatTick}
         />
-        <Tooltip content={<CustomTooltip />} 
-        wrapperStyle={{ fontSize: 14, padding: 10, color: "#000", backgroundColor: "#FFFFFF" }}/>
+        <Tooltip
+          content={<CustomTooltip />}
+          wrapperStyle={{
+            fontSize: 14,
+            padding: 10,
+            color: "#000",
+            backgroundColor: "#FFFFFF",
+          }}
+        />
         <Line
           type="monotone"
           dataKey="sessionLength"
@@ -80,9 +89,17 @@ export default function SessionLengthLineChart({ sessionLengthData }) {
           dominantBaseline="central"
         >
           <tspan x="20">Durée moyenne des </tspan>
-          <tspan x="20" dy="24">sessions</tspan>
+          <tspan x="20" dy="24">
+            sessions
+          </tspan>
         </text>
       </LineChart>
     </ResponsiveContainer>
   );
 }
+
+SessionLengthLineChart.propTypes = {
+  sessionLengthData: PropTypes.shape({
+    sessions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }),
+};
