@@ -1,12 +1,11 @@
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function SessionLengthLineChart({ sessionLengthData }) {
-
   function CustomTooltip({ payload, active }) {
     if (active) {
       return (
-        <div className="custom-tooltip">
-          <p className="label">{`${payload[0].value} min`}</p>
+        <div>
+          <span>{`${payload[0].value} min`}</span>
         </div>
       );
     }
@@ -45,27 +44,45 @@ export default function SessionLengthLineChart({ sessionLengthData }) {
   }
 
   return (
-    <ResponsiveContainer className="card card--square card--red" width="30%" height="100%">
-    <LineChart
+    <ResponsiveContainer
+      className="card card--square card--red"
       width="30%"
       height="100%"
-      data={sessionLengthData.sessions}
-      margin={{ top: 5, right: 20, left: 50, bottom: 5 }}
     >
-      <XAxis
-        dataKey="day"
-        axisLine={false}
-        tickLine={false}
-        tickFormatter={formatTick}
-      />
-      <Tooltip content={<CustomTooltip />} />
-      <Line
-        type="monotone"
-        dataKey="sessionLength"
-        stroke="#ff7300"
-        dot={false}
-      />
-    </LineChart>
+      <LineChart
+        width="30%"
+        height="100%"
+        data={sessionLengthData.sessions}
+        margin={{ top: 40, right: 10, left: 10, bottom: 5 }}
+      >
+        <XAxis
+          dataKey="day"
+          axisLine={false}
+          tick={{ fontSize: 12, fill: "white", fillOpacity: 0.5 }}
+          tickLine={false}
+          tickFormatter={formatTick}
+        />
+        <Tooltip content={<CustomTooltip />} 
+        wrapperStyle={{ fontSize: 14, padding: 10, color: "#000", backgroundColor: "#FFFFFF" }}/>
+        <Line
+          type="monotone"
+          dataKey="sessionLength"
+          stroke="#FFFFFF"
+          strokeWidth={2}
+          dot={false}
+        />
+        <text
+          x={10}
+          y={20}
+          fontSize="15"
+          fill="white"
+          fillOpacity="0.5"
+          dominantBaseline="central"
+        >
+          <tspan x="20">Durée moyenne des </tspan>
+          <tspan x="20" dy="24">sessions</tspan>
+        </text>
+      </LineChart>
     </ResponsiveContainer>
   );
 }

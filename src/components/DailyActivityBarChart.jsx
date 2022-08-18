@@ -21,15 +21,21 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
+function LegendFormatter(value, entry) {
+  return (
+    <span style={{ color: "#74798C" }}>
+      {value === "kilogram" ? "Poids (kg)" : "Calories brûlées (kCal)"}
+    </span>
+  );
+}
+
 export default function DailyActivityBarChart({ activityData }) {
   return (
     <ResponsiveContainer className="card" width="100%" height="50%">
       <BarChart
-        width={700}
-        height={145}
         data={activityData?.sessions}
         margin={{
-          top: 64,
+          top: 23,
           right: 45,
           left: 45,
           bottom: 5,
@@ -37,7 +43,7 @@ export default function DailyActivityBarChart({ activityData }) {
       >
         <text
           x={120}
-          y={20}
+          y={30}
           fill="black"
           textAnchor="middle"
           dominantBaseline="central"
@@ -57,10 +63,32 @@ export default function DailyActivityBarChart({ activityData }) {
           tickLine={false}
           tickMargin={45}
         />
-        <Tooltip content={<CustomTooltip />} />
-        <Legend align="right" verticalAlign="top" />
-        <Bar dataKey="kilogram" fill="#282D30" barSize={7}/>
-        <Bar dataKey="calories" fill="#E60000" barSize={7} />
+        <Tooltip
+          content={<CustomTooltip />}
+          itemStyle = {{margin: "auto"}}
+          wrapperStyle={{ fontSize: 14, padding: 10, color: "#FFFFFF", backgroundColor: "#E60000" }}
+        />
+        <Legend
+          align="right"
+          verticalAlign="top"
+          iconType="circle"
+          formatter={LegendFormatter}
+          wrapperStyle={{
+            paddingBottom: "48px",
+          }}
+        />
+        <Bar
+          dataKey="kilogram"
+          fill="#282D30"
+          barSize={7}
+          radius={[3, 3, 0, 0]}
+        />
+        <Bar
+          dataKey="calories"
+          fill="#E60000"
+          barSize={7}
+          radius={[3, 3, 0, 0]}
+        />
       </BarChart>
     </ResponsiveContainer>
   );

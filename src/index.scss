@@ -115,6 +115,7 @@ body {
 
 .card--square {
   height: 200px;
+  position: relative;
 }
 
 .cards-gallery {
@@ -130,6 +131,15 @@ body {
   display: flex;
   gap: 24px;
   align-items: center;
+  &__value {
+    font-weight: 700;
+    font-size: 20px;
+    color: #282d30;
+  }
+  &__name {
+    font-size: 14px;
+    color: grey;
+  }
 }
 
 .card {

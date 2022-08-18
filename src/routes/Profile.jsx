@@ -8,7 +8,7 @@ import SessionLengthLineChart from "../components/SessionLengthLineChart";
 import fetchUserData from "../utils/APIFunctions";
 import indicatorCardData from "../utils/factories/indicatorCardData";
 import formattedPerformanceData from "../utils/factories/formattedPerformanceData";
-import formattedScoreData from "../utils/factories/scoreData";
+import formattedScoreData from "../utils/factories/formattedScoreData";
 
 export default function Profile() {
   const { userId } = useParams();
@@ -32,8 +32,15 @@ export default function Profile() {
   return (
     <main className="profile-main">
       <section className="greeting">
-        <p className="greeting__heading">Bonjour <span className="greeting__heading--name">{userData.userInfos?.firstName}</span></p>
-        <p className="greeting__sub">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        <p className="greeting__heading">
+          Bonjour{" "}
+          <span className="greeting__heading--name">
+            {userData.userInfos?.firstName}
+          </span>
+        </p>
+        <p className="greeting__sub">
+          Félicitation ! Vous avez explosé vos objectifs hier 👏
+        </p>
       </section>
       <section className="dashboard">
         <section className="charts">
@@ -42,14 +49,19 @@ export default function Profile() {
             <SessionLengthLineChart
               sessionLengthData={userAverageSessionData}
             />
-            <PerformanceRadarChart performanceData={ formattedPerformanceData(userPerformanceData) } />
-            {/* <ScoreRadialBarChart score={userData.todayScore} /> */}
+            <PerformanceRadarChart
+              performanceData={formattedPerformanceData(userPerformanceData)}
+            />
             <ScoreRadialBarChart data={formattedScoreData(userData)} />
           </div>
         </section>
         <section className="cards-gallery">
           {Object.keys(userData.keyData || {}).map((key) => (
-            <IndicatorCard className="card" key={key} data={indicatorCardData(key, userData.keyData[key])} />
+            <IndicatorCard
+              className="card"
+              key={key}
+              data={indicatorCardData(key, userData.keyData[key])}
+            />
           ))}
         </section>
       </section>

@@ -29,8 +29,8 @@ export default function IndicatorCard({data}) {
         <div className="indicator-card card">
             <img src={src} alt="" />
             <div>
-                <div>{data.value}{data.unit}</div>
-                <div>{data.nameFr}</div>
+                <div className='indicator-card__value'>{data.value}{data.unit}</div>
+                <div className='indicator-card__name'>{data.nameFr}</div>
             </div>  
         </div>
     )

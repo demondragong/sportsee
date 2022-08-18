@@ -7,7 +7,11 @@ import {
 
 export default function ScoreRadialBarChart({ data }) {
   return (
-    <ResponsiveContainer className="card card--square" width="30%" height="100%">
+    <ResponsiveContainer
+      className="card card--square"
+      width="30%"
+      height="100%"
+    >
       <RadialBarChart
         cx="50%"
         cy="50%"
@@ -15,6 +19,8 @@ export default function ScoreRadialBarChart({ data }) {
         outerRadius="80%"
         barSize={10}
         data={data}
+        startAngle={90}
+        endAngle={-270}
       >
         <PolarAngleAxis
           type="number"
@@ -24,12 +30,39 @@ export default function ScoreRadialBarChart({ data }) {
           tick={false}
         />
         <RadialBar
-          minAngle={15}
-          label={{ position: "center", fill: "#FF0000" }}
-          background
+          minAngle={0}
+          background="white"
           clockWise
           dataKey="score"
+          cornerRadius={10}
         />
+
+        <text
+          x="30"
+          y="24"
+          fill="black"
+          dominantBaseline="central"
+        >
+          <tspan>Score</tspan>
+        </text>
+
+        <text
+          x="50%"
+          y="40%"
+          fill="black"
+          textAnchor="middle"
+          dominantBaseline="central"
+        >
+          <tspan fontSize="26" fontWeight="700" fill="#282D30">
+            {data[0].score * 100}%
+          </tspan>
+          <tspan fontSize="16" fontWeight="500" x="50%" dy="30" fill="#74798C">
+            de votre
+          </tspan>
+          <tspan fontSize="16" fontWeight="500" x="50%" dy="20" fill="#74798C">
+            objectif
+          </tspan>
+        </text>
       </RadialBarChart>
     </ResponsiveContainer>
   );
