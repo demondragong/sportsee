@@ -6,7 +6,7 @@ import PerformanceRadarChart from "../components/PerformanceRadarChart";
 import ScoreRadialBarChart from "../components/ScoreRadialBarChart";
 import SessionLengthLineChart from "../components/SessionLengthLineChart";
 import fetchUserData from "../utils/APIFunctions";
-import indicatorCardData from "../utils/factories/indicatorCardData";
+import formattedIndicatorData from "../utils/factories/formattedIndicatorData";
 import formattedPerformanceData from "../utils/factories/formattedPerformanceData";
 import formattedScoreData from "../utils/factories/formattedScoreData";
 
@@ -63,7 +63,7 @@ export default function Profile() {
             <IndicatorCard
               className="card"
               key={key}
-              data={indicatorCardData(key, userData.keyData[key])}
+              data={formattedIndicatorData(key, userData.keyData[key])}
             />
           ))}
         </section>

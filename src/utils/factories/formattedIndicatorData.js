@@ -1,4 +1,9 @@
-export default function indicatorCardData(key, value) {
+/**
+ * Format the key indicators data (calories, proteins, etc) from the sportsee API for use in the IndicatorCard component
+ * @param { String } key Key from the keyData object
+ * @param { Number } value Corresponding value in the keyData object 
+ */
+export default function formattedIndicatorData(key, value) {
     switch (key) {
         case "calorieCount":
             return {value: value, unit: "kCal", nameFr:"Calories"}

@@ -10,6 +10,9 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Fuction to customise the tooltip of the chart component
+ */
 function CustomTooltip({ payload, active }) {
   if (active) {
     return (
@@ -22,6 +25,9 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
+/**
+ * Fuction to format the legend of the chart component
+ */
 function LegendFormatter(value, entry) {
   return (
     <span style={{ color: "#74798C" }}>
