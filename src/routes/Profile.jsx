@@ -18,10 +18,11 @@ export default function Profile() {
   const [userPerformanceData, setUserPerformanceData] = useState({});
 
   useEffect(() => {
-    fetchUserData("", userId, setUserData);
-    fetchUserData("activity", userId, setUserActivityData);
-    fetchUserData("average-sessions", userId, setUserAverageSessionData);
-    fetchUserData("performance", userId, setUserPerformanceData);
+    let mock = true
+    fetchUserData(mock, "", userId, setUserData);
+    fetchUserData(mock, "activity", userId, setUserActivityData);
+    fetchUserData(mock, "average-sessions", userId, setUserAverageSessionData);
+    fetchUserData(mock, "performance", userId, setUserPerformanceData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
