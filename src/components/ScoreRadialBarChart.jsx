@@ -50,7 +50,7 @@ export default function ScoreRadialBarChart({ data }) {
           dominantBaseline="central"
         >
           <tspan fontSize="26" fontWeight="700" fill="#282D30">
-            {data[0].score * 100}%
+            {data[0].score ? data[0].score * 100 : ''}%
           </tspan>
           <tspan fontSize="16" fontWeight="500" x="50%" dy="30" fill="#74798C">
             de votre

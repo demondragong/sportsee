@@ -14,9 +14,7 @@ export default function Profile() {
   const { userId } = useParams();
   const [userData, setUserData] = useState({});
   const [userActivityData, setUserActivityData] = useState({ sessions: [] });
-  const [userAverageSessionData, setUserAverageSessionData] = useState({
-    sessions: [],
-  });
+  const [userAverageSessionData, setUserAverageSessionData] = useState({ sessions: [] });
   const [userPerformanceData, setUserPerformanceData] = useState({});
 
   useEffect(() => {
@@ -24,10 +22,11 @@ export default function Profile() {
     fetchUserData("activity", userId, setUserActivityData);
     fetchUserData("average-sessions", userId, setUserAverageSessionData);
     fetchUserData("performance", userId, setUserPerformanceData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    document.title = `Sportsee profile | ${userData.userInfos?.firstName} ${userData.userInfos?.lastName}`;
+    document.title = `Sportsee profile | ${userData.userInfos?.firstName || ''} ${userData.userInfos?.lastName || ''}`;
   }, [userData]);
 
   return (
