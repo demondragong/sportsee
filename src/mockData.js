@@ -2,11 +2,11 @@ const USER_MAIN_DATA = [
     {
         id: 12,
         userInfos: {
-            firstName: 'Karl',
+            firstName: 'Charles',
             lastName: 'Dovineau',
             age: 31,
         },
-        todayScore: 0.12,
+        todayScore: 0.72,
         keyData: {
             calorieCount: 1930,
             proteinCount: 155,
@@ -17,11 +17,11 @@ const USER_MAIN_DATA = [
     {
         id: 18,
         userInfos: {
-            firstName: 'Cecilia',
+            firstName: 'Céline',
             lastName: 'Ratorez',
             age: 34,
         },
-        score: 0.3,
+        score: 0.9,
         keyData: {
             calorieCount: 2500,
             proteinCount: 90,
