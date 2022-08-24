@@ -1,12 +1,3 @@
-/**
- * Fetch data from the sportsee API (running locally for development) and use it to set the relevant state
- *
- * @async
- * @param { String } ressource used to build the API endpoint to fetch data, like so http://localhost:3000/user/userId/ressource
- * @param { String } userId used to build the API endpoint to fetch data, like so http://localhost:3000/user/userId/ressource
- * @param { Function } setDataState sate setting function of the state that should be updated
- */
-
 import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
@@ -14,6 +5,17 @@ import {
   USER_PERFORMANCE,
 } from "../mockData";
 
+
+
+/**
+ * Fetch data from the sportsee API (running locally for development) and use it to set the relevant state
+ *
+ * @async
+ * @param { Boolean } mock used to switch between mocked data and API
+ * @param { String } ressource used to build the API endpoint to fetch data, like so http://localhost:3000/user/userId/ressource
+ * @param { String } userId used to build the API endpoint to fetch data, like so http://localhost:3000/user/userId/ressource
+ * @param { Function } setDataState sate setting function of the state that should be updated
+ */
 export default async function fetchUserData(
   mock,
   ressource,
