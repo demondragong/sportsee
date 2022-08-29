@@ -1,3 +1,4 @@
+import apiBaseUrl from "./constants";
 import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
@@ -39,7 +40,7 @@ export default async function fetchUserData(
         break;
     }
   } else {
-    const userUrl = "http://localhost:3000/user/" + userId + "/" + ressource;
+    const userUrl = apiBaseUrl + userId + "/" + ressource;
 
     try {
       const response = await fetch(userUrl);

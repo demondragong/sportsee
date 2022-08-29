@@ -18,7 +18,7 @@ export default function Profile() {
   const [userPerformanceData, setUserPerformanceData] = useState({});
 
   useEffect(() => {
-    let mock = true
+    let mock = false
     fetchUserData(mock, "", userId, setUserData);
     fetchUserData(mock, "activity", userId, setUserActivityData);
     fetchUserData(mock, "average-sessions", userId, setUserAverageSessionData);
