@@ -3,7 +3,7 @@ import {
   USER_AVERAGE_SESSIONS,
   USER_MAIN_DATA,
   USER_PERFORMANCE,
-} from "../mockData";
+} from "./mockData";
 
 
 
