@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DailyActivityBarChart from "../components/DailyActivityBarChart";
 import IndicatorCard from "../components/IndicatorCard";
@@ -10,19 +10,6 @@ import { useSportseeAPI } from "../utils/useSportseeAPI";
 
 export default function Profile() {
   const { userId } = useParams();
-  // const [userData, setUserData] = useState({});
-  // const [userActivityData, setUserActivityData] = useState({ sessions: [] });
-  // const [userAverageSessionData, setUserAverageSessionData] = useState({ sessions: [] });
-  // const [userPerformanceData, setUserPerformanceData] = useState({});
-
-  // useEffect(() => {
-  //   let mock = false
-  //   // fetchUserData(mock, "", userId, setUserData);
-  //   // fetchUserData(mock, "activity", userId, setUserActivityData);
-  //   // fetchUserData(mock, "average-sessions", userId, setUserAverageSessionData);
-  //   // fetchUserData(mock, "performance", userId, setUserPerformanceData);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   const { response: userData, loading, error } = useSportseeAPI(userId, "");
   const { response: userActivityData } = useSportseeAPI(userId, "activity");

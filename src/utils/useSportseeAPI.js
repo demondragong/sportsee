@@ -46,9 +46,7 @@ export const useSportseeAPI = (userId, ressource) => {
   const fetchData = async (url) => {
     try {
     //   const result = getMockData(userId, ressource); // get data from mockData
-      const {
-        data: { data: result },
-      } = await axios.get(url); // get data from API
+      const {data: { data: result }} = await axios.get(url); // get data from API
       const formattedResult = formatResult(result, ressource);
       setResponse(formattedResult);
     } catch (error) {
