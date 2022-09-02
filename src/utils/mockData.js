@@ -3,7 +3,7 @@ const USER_MAIN_DATA = [
         id: 12,
         userInfos: {
             firstName: 'Charles',
-            lastName: 'Dovineau',
+            lastName: 'Mockineau',
             age: 31,
         },
         todayScore: 0.72,
@@ -18,7 +18,7 @@ const USER_MAIN_DATA = [
         id: 18,
         userInfos: {
             firstName: 'Céline',
-            lastName: 'Ratorez',
+            lastName: 'Datarez',
             age: 34,
         },
         score: 0.9,
@@ -262,11 +262,25 @@ const USER_PERFORMANCE = [
     }
 ]
 
+const getMockData = (userId, ressource) => {
+    switch (ressource) {
+      case "activity":
+        return USER_ACTIVITY.find((x) => x.userId === parseInt(userId));
+      case "average-sessions":
+        return USER_AVERAGE_SESSIONS.find((x) => x.userId === parseInt(userId));
+      case "performance":
+        return USER_PERFORMANCE.find((x) => x.userId === parseInt(userId));
+      default:
+        return USER_MAIN_DATA.find((x) => x.id === parseInt(userId));
+    }
+  };
+
 
 
 module.exports = {
     USER_MAIN_DATA,
     USER_ACTIVITY,
     USER_AVERAGE_SESSIONS,
-    USER_PERFORMANCE
+    USER_PERFORMANCE,
+    getMockData
 }

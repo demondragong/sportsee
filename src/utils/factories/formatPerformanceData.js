@@ -3,7 +3,7 @@
  * @param {Object} data Data returned by the API, object containing a data array of objects with value and kind properties
  * @returns {Array} Array of objects that can be used by the performance radar chart component
  */
-export default function formattedPerformanceData(data) {
+export default function formatPerformanceData(data) {
   const kind_fr = {
     1: "Cardio",
     2: "Energie",

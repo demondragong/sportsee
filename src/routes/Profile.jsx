@@ -5,29 +5,32 @@ import IndicatorCard from "../components/IndicatorCard";
 import PerformanceRadarChart from "../components/PerformanceRadarChart";
 import ScoreRadialBarChart from "../components/ScoreRadialBarChart";
 import SessionLengthLineChart from "../components/SessionLengthLineChart";
-import fetchUserData from "../utils/APIFunctions";
-import formattedIndicatorData from "../utils/factories/formattedIndicatorData";
-import formattedPerformanceData from "../utils/factories/formattedPerformanceData";
-import formattedScoreData from "../utils/factories/formattedScoreData";
+import formatIndicatorData from "../utils/factories/formatIndicatorData";
+import { useSportseeAPI } from "../utils/useSportseeAPI";
 
 export default function Profile() {
   const { userId } = useParams();
-  const [userData, setUserData] = useState({});
-  const [userActivityData, setUserActivityData] = useState({ sessions: [] });
-  const [userAverageSessionData, setUserAverageSessionData] = useState({ sessions: [] });
-  const [userPerformanceData, setUserPerformanceData] = useState({});
+  // const [userData, setUserData] = useState({});
+  // const [userActivityData, setUserActivityData] = useState({ sessions: [] });
+  // const [userAverageSessionData, setUserAverageSessionData] = useState({ sessions: [] });
+  // const [userPerformanceData, setUserPerformanceData] = useState({});
+
+  // useEffect(() => {
+  //   let mock = false
+  //   // fetchUserData(mock, "", userId, setUserData);
+  //   // fetchUserData(mock, "activity", userId, setUserActivityData);
+  //   // fetchUserData(mock, "average-sessions", userId, setUserAverageSessionData);
+  //   // fetchUserData(mock, "performance", userId, setUserPerformanceData);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  const { response: userData, loading, error } = useSportseeAPI(userId, "");
+  const { response: userActivityData } = useSportseeAPI(userId, "activity");
+  const { response: userAverageSessionData } = useSportseeAPI(userId, "average-sessions");
+  const { response: userPerformanceData } = useSportseeAPI(userId, "performance");
 
   useEffect(() => {
-    let mock = false
-    fetchUserData(mock, "", userId, setUserData);
-    fetchUserData(mock, "activity", userId, setUserActivityData);
-    fetchUserData(mock, "average-sessions", userId, setUserAverageSessionData);
-    fetchUserData(mock, "performance", userId, setUserPerformanceData);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    document.title = `Sportsee profile | ${userData.userInfos?.firstName || ''} ${userData.userInfos?.lastName || ''}`;
+    document.title = `Sportsee profile | ${userData?.userInfos.firstName || ''} ${userData?.userInfos.lastName || ''}`;
   }, [userData]);
 
   return (
@@ -36,7 +39,7 @@ export default function Profile() {
         <p className="greeting__heading">
           Bonjour{" "}
           <span className="greeting__heading--name">
-            {userData.userInfos?.firstName}
+            {userData?.userInfos.firstName}
           </span>
         </p>
         <p className="greeting__sub">
@@ -45,25 +48,23 @@ export default function Profile() {
       </section>
       <section className="dashboard">
         <section className="charts">
-          <DailyActivityBarChart activityData={userActivityData} />
+          <DailyActivityBarChart activityData={userActivityData || { sessions: [] }} />
           <div className="square-charts">
             <SessionLengthLineChart
-              sessionLengthData={userAverageSessionData}
+              sessionLengthData={userAverageSessionData || { sessions: [] }}
             />
             <PerformanceRadarChart
-              performanceData={
-                formattedPerformanceData(userPerformanceData) || []
-              }
+              performanceData={userPerformanceData || []}
             />
-            <ScoreRadialBarChart data={formattedScoreData(userData)} />
+            <ScoreRadialBarChart score={userData?.score || 0} />
           </div>
         </section>
         <section className="cards-gallery">
-          {Object.keys(userData.keyData || {}).map((key) => (
+          {Object.keys(userData?.keyData || {}).map((key) => (
             <IndicatorCard
               className="card"
               key={key}
-              data={formattedIndicatorData(key, userData.keyData[key])}
+              data={formatIndicatorData(key, userData?.keyData[key])}
             />
           ))}
         </section>

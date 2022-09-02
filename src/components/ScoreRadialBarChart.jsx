@@ -6,7 +6,15 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
-export default function ScoreRadialBarChart({ data }) {
+export default function ScoreRadialBarChart({ score }) {
+
+  const data = [
+    {
+      score: score,
+      fill: "#FF0000",
+    },
+  ];
+
   return (
     <ResponsiveContainer
       className="card card--square"
@@ -65,6 +73,5 @@ export default function ScoreRadialBarChart({ data }) {
 }
 
 ScoreRadialBarChart.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({ score: PropTypes.number }))
-    .isRequired,
+  score: PropTypes.number.isRequired,
 };

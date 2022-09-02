@@ -4,7 +4,7 @@
  * @param { Number } value Corresponding value in the keyData object
  * @returns {Object} Object that can be used by the IndicatorCard component
  */
-export default function formattedIndicatorData(key, value) {
+export default function formatIndicatorData(key, value) {
     switch (key) {
         case "calorieCount":
             return {value: value, unit: "kCal", nameFr:"Calories"}
